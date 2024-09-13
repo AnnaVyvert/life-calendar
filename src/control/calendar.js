@@ -15,13 +15,17 @@ function fillCalendar(element, calendarConfig, user) {
     let yearCellsHtml = '';
     let yearCount = birthdayYear+i;
     let yearCountStr = yearCount.toString();
+    let yearFirstMondayTime = getFirstWeekOfYear(yearCount);
+    let weekCount = 0;
 
-    for (let i2=0; i2<52; i2++) {
+    let time=yearFirstMondayTime+weeksToMilliseconds(1);
+    do {
+      weekCount++;
       // check that week is future
-      let isAfterThisWeek = getTimeFromYear(yearCount) + weekNumberToMilliseconds(i2) > now.getTime();
+      let isAfterThisWeek = getTimeYearStart(yearCount) + weeksToMilliseconds(weekCount) > now.getTime();
       
       // check that a person was born on that week and futher
-      if (getTimeFromYear(yearCount) + weekNumberToMilliseconds(i2+2) > birthday.getTime()) {
+      if (getTimeYearStart(yearCount) + weeksToMilliseconds(weekCount) > birthday.getTime()) {
         weekCountFromBirth++;
       }
 
@@ -33,9 +37,10 @@ function fillCalendar(element, calendarConfig, user) {
         cellClasses.push('before-birth');
       }
 
-      // TODO we got a problem, there are never 52 weeks in the year.
-      yearCellsHtml += yearCellHtml(i2, yearCount, weekCountFromBirth, cellClasses);
-    }
+      yearCellsHtml += yearCellHtml(new Date(time), weekCount, yearCount, weekCountFromBirth, cellClasses);
+
+      time+=weeksToMilliseconds(1);
+    } while (new Date(time).getFullYear() <= yearCount);
 
     calendarHtml += `
       <div class="year">
