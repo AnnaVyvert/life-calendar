@@ -1,0 +1,1 @@
+fillCalendar(document.querySelector('.calendar__wrapper'), calendarConfig, user);
