@@ -93,7 +93,8 @@ header {
   background-color: var(--bg-color);
 }
 .year__week.before-birth {
-  visibility: hidden;
+  background-color: gray;
+  border: 2px solid gray;
 }
 
 
