@@ -5,11 +5,12 @@ yearHeaderHtml = (yearStr) => `
   <div class="year__header">${yearStr[3]}</div>
 `;
 
-yearCellHtml = (date, weekId, yearCount, weekCount, classes) => `
+yearCellHtml = (date, weekCount, classes) => `
   <div 
-    id="cell-${yearCount}-${weekId}"
+    id="cell-${date}"
     ${classes.length ? 'class="'+classes.join(' ')+'"' : ''} 
     title="week number: ${weekCount} 
-    ${formatDate(date)}"
+    ${formatDate(new Date(date))}"
+    onclick="onCellClick(${date})"
   ></div>
 `;

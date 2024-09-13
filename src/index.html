@@ -7,20 +7,22 @@
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 
-  <script src="view/calendar.js" defer></script>
+  <script src="view/calendar.js"></script>
+  <script src="view/user.js" defer></script>
 
-  <script src="model/user.default.js" defer></script>
-  <script src="model/calendar.default.js" defer></script>
-  <script src="model/date-handlers.js" defer></script>
+  <script src="model/utils.js"></script>
+  <script src="model/user.default.js"></script>
+  <script src="model/calendar.default.js"></script>
+  <script src="model/date-handlers.js"></script>
 
   <script src="control/calendar.js"></script>
+  <script src="control/user.js"></script>
 
   <script src="script.js" defer></script>
 </head>
 <body>
   <header>
     TODO:
-      - фикс порядка недель от рождения (1 год != 52 недели)
       - прикрутить стор для юзера
       - возможность писать записки о конкретной неделе (для будущего запретить)
       - возможность отмечать будущие недели маркером
