@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Life Calendar</title>
+  <title>Life Calendar Journal</title>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 
@@ -11,11 +11,14 @@
   <script src="view/user.js" defer></script>
   <script src="view/modal.js" defer></script>
   <script src="view/modal-animations.js" defer></script>
+  <script src="view/week-note.js" defer></script>
 
   <script src="model/utils.js"></script>
   <script src="model/user.default.js"></script>
   <script src="model/calendar.default.js"></script>
   <script src="model/date-handlers.js"></script>
+  <script src="model/user.js"></script>
+  <script src="model/week-note.js"></script>
 
   <script src="control/modal.js"></script>
   <script src="control/calendar.js"></script>
@@ -26,12 +29,13 @@
 <body>
   <header>
     TODO:
-      - прикрутить стор для юзера
-      - возможность писать записки о конкретной неделе (для будущего запретить)
-      - возможность отмечать будущие недели маркером
-      - отображение что записка есть и тултип при наведении
+      - легенда
+      - opt настраиваемая легенда (конфигурация календаря)
+      - opt кнопки управления запиской из попапа (очищение записки, отменить изменения)
+      - режим отображения порядка недель
+      - opt прикрутить отображение записки как md
       - прикрутить авторизацию для инициализации стора юзера
-      - возможность импортировать и экспортировать стор
+      - opt возможность импортировать и экспортировать стор
       - сделать сервис с авторизацией по логину и паролю для хранения стора на беке (фс)
       - дизайн хедера и футера
     </header>
@@ -41,7 +45,7 @@
         <textarea></textarea>
       </div>
     </div>
-    <div class="calendar-header">Life Calendar</div>
+    <div class="calendar-header">Life Calendar Journal</div>
     <div class="calendar-person">
       <span>person info:</span>
       <span>name: <span class="calendar-person__name">-</span></span>

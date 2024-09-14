@@ -65,9 +65,6 @@ header {
   margin: 2px;
   border-radius: 2px;
 }
-.year__week.present {
-  background-color: yellowgreen;
-}
 .year__week.future {
   background-color: var(--bg-color);
 }
@@ -77,6 +74,12 @@ header {
 }
 .year__week.selected {
   border-color: tomato;
+}
+.year__week.note {
+  background-color: peru;
+}
+.year__week.present {
+  background-color: yellowgreen;
 }
 
 div.popup {

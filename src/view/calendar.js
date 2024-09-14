@@ -9,8 +9,8 @@ yearCellHtml = (date, weekCount, classes) => `
   <div 
     id="cell-${date}"
     ${classes.length ? 'class="'+classes.join(' ')+'"' : ''} 
-    title="week number: ${weekCount} 
+    title="week number: ${weekCount}
     ${formatDate(new Date(date))}"
-    onclick="onCellClick(${date})"
+    onclick="onCellClick(${date}, ${weekCount})"
   ></div>
 `;

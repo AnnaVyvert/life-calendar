@@ -42,7 +42,6 @@ getAllowedModalDirectionsToOpen = (anchorEl) => {
 
 placeModal = (anchorEl, allowedDirections) => { 
   allowedDirections.forEach((direction, i) => {
-    console.log(direction)
     if (i > 1) return;
     switch (direction) {
       case directions.left: 

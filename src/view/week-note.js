@@ -1,0 +1,1 @@
+weekNoteElement = document.querySelector('.popup__content textarea');

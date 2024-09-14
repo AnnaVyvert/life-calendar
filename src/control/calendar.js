@@ -1,20 +1,27 @@
 let selectedCell;
-function onCellClick(time) {
+function onCellClick(time, weekCount) {
   cellEl = document.querySelector(`#cell-${time}`);
 
   if (cellEl.id === selectedCell?.id) {
     closeModal();
     cellEl.classList.remove('selected');
+    if (onWeekNoteSave(weekCount)) {
+      cellEl.classList.add('note');
+    } else {
+      cellEl.classList.remove('note');
+    }
     selectedCell = undefined;
   } else {
+    loadNote(weekCount);
     showModal(cellEl);
+    focusWeekNoteElement();
     cellEl.classList.add('selected');
     selectedCell?.classList.remove('selected');
     selectedCell = cellEl;
   }
 }
 
-function fillCalendar(element, calendarConfig, user) {
+function generateCalendar(element, calendarConfig, user) {
   const birthday = new Date(user.birthday);
   const birthdayTime = birthday.getTime();
   const birthdayYear = birthday.getFullYear();
@@ -57,6 +64,9 @@ function fillCalendar(element, calendarConfig, user) {
       }
       if (weekCountFromBirth === 0) {
         cellClasses.push('before-birth');
+      }
+      if (user.diary.find((el) => el.weekId === weekCountFromBirth)) {
+        cellClasses.push('note')
       }
 
       yearCellsHtml += yearCellHtml(time, weekCountFromBirth, cellClasses);
