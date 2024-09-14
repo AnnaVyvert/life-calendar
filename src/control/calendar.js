@@ -24,18 +24,23 @@ function fillCalendar(element, calendarConfig, user) {
     do {
       weekCount++;
       // check that week is future
+      let isPresent = now.getTime() - time < weeksToMilliseconds(1)
       let isAfterThisWeek = time > now.getTime();
+
+
+      if (now.getTime() >= time) {
+        weekLived = weekCountFromBirth;
+      }
 
       // check that a person was born on that week and futher
       if (time >= birthdayTime || (time < birthdayTime && birthdayTime - time < weeksToMilliseconds(1))) {
         weekCountFromBirth++;
       }
 
-      if (now.getTime() >= time) {
-        weekLived = weekCountFromBirth;
-      }
-
       cellClasses = ['year__week'];
+      if (isPresent && !isAfterThisWeek) {
+        cellClasses.push('present')
+      }
       if (isAfterThisWeek) {
         cellClasses.push('future');
       }
