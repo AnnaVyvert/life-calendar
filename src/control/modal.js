@@ -6,19 +6,18 @@ const directions = {
 };
 
 showModal = (anchorEl) => {
-  setModalTransition(modalElement.style.display === 'none' ? 0 : 0.4)
+  setModalTransition(modalElement.classList.contains('open') ? 0.4 : 0)
   
-  modalElement.style.display = 'initial';
   document.body.style.overflow = 'hidden';
+  modalElement.classList.add('open');
 
   const allowedDirections = getAllowedModalDirectionsToOpen(anchorEl);
   placeModal(anchorEl, allowedDirections);
 };
 closeModal = () => {
-  modalElement.style.display = 'none';
+  modalElement.classList.remove('open');
   document.body.style.overflow = 'initial';
 };
-toggleModal = (anchorEl) => modalElement.open ? closeModal() : showModal(anchorEl);
 setModalTransition = (s) => modalElement.style.transition = `${s}s`
 
 getAllowedModalDirectionsToOpen = (anchorEl) => {
