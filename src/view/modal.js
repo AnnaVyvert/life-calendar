@@ -1,0 +1,1 @@
+modalElement = document.querySelector('div.popup');

@@ -9,12 +9,14 @@
 
   <script src="view/calendar.js"></script>
   <script src="view/user.js" defer></script>
+  <script src="view/modal.js" defer></script>
 
   <script src="model/utils.js"></script>
   <script src="model/user.default.js"></script>
   <script src="model/calendar.default.js"></script>
   <script src="model/date-handlers.js"></script>
 
+  <script src="control/modal.js"></script>
   <script src="control/calendar.js"></script>
   <script src="control/user.js"></script>
 
@@ -33,6 +35,9 @@
       - дизайн хедера и футера
     </header>
   <section class="content">
+    <div class="popup">
+      <div class="popup__content"></div>
+    </div>
     <div class="calendar-header">Life Calendar</div>
     <div class="calendar-person">
       <span>person info:</span>

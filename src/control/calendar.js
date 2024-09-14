@@ -1,6 +1,17 @@
+let selectedCell;
 function onCellClick(time) {
-  cellRef = document.querySelector(`#cell-${time}`);
-  cellRef.style.backgroundColor='red';
+  cellEl = document.querySelector(`#cell-${time}`);
+
+  if (cellEl.id === selectedCell?.id) {
+    closeModal();
+    cellEl.classList.remove('selected');
+    selectedCell = undefined;
+  } else {
+    showModal(cellEl);
+    cellEl.classList.add('selected');
+    selectedCell?.classList.remove('selected');
+    selectedCell = cellEl;
+  }
 }
 
 function fillCalendar(element, calendarConfig, user) {

@@ -75,7 +75,35 @@ header {
   background-color: gray;
   border: 2px solid gray;
 }
+.year__week.selected {
+  border-color: tomato;
+}
 
+div.popup {
+  /* modal */
+  position: absolute;
+  display: none;
+
+  color: var(--bg-color);
+  font-size: 14px;
+  font-family: monospace;
+  border-radius: 4px;
+  animation: fade-in 0.3s ease 1 forwards;
+  z-index: 1;
+  min-width: 200px;
+  max-width: 350px;
+  min-height: 200px;
+  max-height: 350px;
+  outline: none;
+
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.76);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
 
 body {
   background-color: var(--bg-color);
