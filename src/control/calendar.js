@@ -4,19 +4,19 @@ function onCellClick(time, weekCount) {
 
   if (cellEl.id === selectedCell?.id) {
     closeModal();
-    cellEl.classList.remove('selected');
+    cellEl.classList.remove(weekStatus.selected);
     if (onWeekNoteSave(weekCount)) {
-      cellEl.classList.add('note');
+      cellEl.classList.add(weekStatus.note);
     } else {
-      cellEl.classList.remove('note');
+      cellEl.classList.remove(weekStatus.note);
     }
     selectedCell = undefined;
   } else {
     loadNote(weekCount);
     showModal(cellEl);
     focusWeekNoteElement();
-    cellEl.classList.add('selected');
-    selectedCell?.classList.remove('selected');
+    cellEl.classList.add(weekStatus.selected);
+    selectedCell?.classList.remove(weekStatus.selected);
     selectedCell = cellEl;
   }
 }
@@ -57,16 +57,16 @@ function generateCalendar(element, calendarConfig, user) {
 
       cellClasses = ['year__week'];
       if (isPresent && !isAfterThisWeek) {
-        cellClasses.push('present')
+        cellClasses.push(weekStatus.present)
       }
       if (isAfterThisWeek) {
-        cellClasses.push('future');
+        cellClasses.push(weekStatus.future);
       }
       if (weekCountFromBirth === 0) {
-        cellClasses.push('before-birth');
+        cellClasses.push(weekStatus.beforeBirth);
       }
       if (user.diary.find((el) => el.weekId === weekCountFromBirth)) {
-        cellClasses.push('note')
+        cellClasses.push(weekStatus.note)
       }
 
       yearCellsHtml += yearCellHtml(time, weekCountFromBirth, cellClasses);

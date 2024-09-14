@@ -3,3 +3,5 @@ generateCalendar(document.querySelector('.calendar__wrapper'), calendarConfig, u
 setName(user.name);
 setBirthday(user.birthday);
 setWeeksLived(user.birthday);
+
+generateLegend();

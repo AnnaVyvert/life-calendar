@@ -1,3 +1,11 @@
+const weekStatus = {
+  future: 'future',
+  beforeBirth: 'before-birth',
+  selected: 'selected',
+  note: 'note',
+  present: 'present'
+};
+
 const calendarConfig = {
   "description": "Life Calendar",
   "marks": [

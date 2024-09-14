@@ -14,3 +14,9 @@ yearCellHtml = (date, weekCount, classes) => `
     onclick="onCellClick(${date}, ${weekCount})"
   ></div>
 `;
+
+yearCellLegendHtml = (classes) => `
+  <div  
+    class="year__week ${classes}" 
+  ></div>
+`

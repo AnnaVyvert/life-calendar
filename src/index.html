@@ -12,6 +12,7 @@
   <script src="view/modal.js" defer></script>
   <script src="view/modal-animations.js" defer></script>
   <script src="view/week-note.js" defer></script>
+  <script src="view/legend.js" defer></script>
 
   <script src="model/utils.js"></script>
   <script src="model/user.default.js"></script>
@@ -19,10 +20,12 @@
   <script src="model/date-handlers.js"></script>
   <script src="model/user.js"></script>
   <script src="model/week-note.js"></script>
+  <script src="model/legend.js"></script>
 
   <script src="control/modal.js"></script>
   <script src="control/calendar.js"></script>
   <script src="control/user.js"></script>
+  <script src="control/legend.js"></script>
 
   <script src="script.js" defer></script>
 </head>
@@ -51,6 +54,10 @@
       <span>name: <span class="calendar-person__name">-</span></span>
       <span>birth: <span class="calendar-person__birth">-</span></span>
       <span>weeks lived: <span class="calendar-person__weeks-lived">-</span></span>
+    </div>
+    <div class="calendar-legend">
+      <div class="calendar-legend__title">Legend:</div>
+      <div class="calendar-legend__content"></div>
     </div>
     <section class="calendar">
       <div class="calendar__wrapper"></div>
