@@ -1,15 +1,23 @@
 const LS = window.localStorage;
 const writeUserToDb = (user) => LS.setItem('user', JSON.stringify(user));
+var user = {};
 
-const userData = LS.getItem('user');
-var user;
+function createUser(name, birthday) {
+  user = {
+    name,
+    birthday,
+    journal: []
+  }
+}
 
-if (userData === null) {
-  // TODO: handle by redirecting for authorization
-  user = defaultUser;
-  writeUserToDb(user);
-} else {
-  user = JSON.parse(userData);
+function loadUser() {
+  const userData = LS.getItem('user');
+  if (userData === null) {
+    return 0;
+  } else {
+    user = JSON.parse(userData);
+    return 1;
+  }
 }
 
 function saveWeekNoteToDb(weekId, note) {

@@ -1,1 +1,1 @@
-modalElement = document.querySelector('div.popup');
+const modalElement = document.querySelector('div.popup');

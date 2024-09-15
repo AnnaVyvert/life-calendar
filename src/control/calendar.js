@@ -21,6 +21,7 @@ function onCellClick(time, weekCount) {
   }
 }
 
+var weekLived;
 function generateCalendar() {
   function generateCalendar(element, calendarConfig, user) {
     const birthday = new Date(user.birthday);

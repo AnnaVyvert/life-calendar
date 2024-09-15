@@ -1,7 +1,16 @@
-generateCalendar();
+function loadApp() {
+  generateCalendar();
 
-setPersonalInfo();
+  setPersonalInfo();
+  
+  generateLegend();
+  detailedWeeksCheckboxValueChangeSubscribe();
+  dataRecieverSubscribe();  
+}
 
-generateLegend();
-detailedWeeksCheckboxValueChangeSubscribe();
-dataRecieverSubscribe();
+disablePageReloadingOnRegisterSubmit();
+if(loadUser()) {
+  loadApp();
+} else {
+  authLoginElement.showModal();
+}

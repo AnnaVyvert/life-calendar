@@ -9,6 +9,10 @@ button {
   border-radius: 4px;
 }
 
+input {
+  border-radius: 4px;
+}
+
 .sr-center {
   display: flex;
   justify-content: center;
@@ -16,6 +20,26 @@ button {
 
 header {
   margin-bottom: 16px;
+}
+
+div.popup,
+dialog.login {
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.76);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+dialog.login::backdrop {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+dialog.login .content {
+  display: grid;
+}
+dialog.login .content div:not(:last-child) {
+  margin-bottom: 8px;
 }
 
 .calendar-header {
@@ -172,14 +196,6 @@ div.popup {
   min-height: 200px;
   max-height: 350px;
   outline: none;
-
-  /* glass effect */
-  background: rgba(255, 255, 255, 0.76);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 div.popup.open {
   display: initial;

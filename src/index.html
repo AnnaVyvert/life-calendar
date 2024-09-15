@@ -16,9 +16,9 @@
   <script src="view/calendar-view-options.js" defer></script>
   <script src="view/info-and-settings.js" defer></script>
   <script src="view/file-handler.js" defer></script>
+  <script src="view/auth-modal.js" defer></script>
 
   <script src="model/utils.js"></script>
-  <script src="model/user.default.js"></script>
   <script src="model/calendar.default.js"></script>
   <script src="model/date-handlers.js"></script>
   <script src="model/user.js"></script>
@@ -31,17 +31,34 @@
   <script src="control/legend.js"></script>
   <script src="control/calendar-view-options.js"></script>
   <script src="control/file-handler.js"></script>
+  <script src="control/auth-modal.js"></script>
 
   <script src="script.js" defer></script>
-
-  <script>
-    // prevent Firefox FOUC
-    0;
-  </script>
 </head>
 <body>
   <header></header>
   <section class="content">
+    <dialog class="login">
+      <div class="content">
+        <form>
+          <div>
+            <label>
+              your name:
+              <input type="text" name="name" style="width: 105px;" placeholder="Name Surname">
+            </label>
+          </div>
+          <div>
+            <label>
+              your birthday:
+              <input type="text" name="birthday" style="width: 88px;" placeholder="YYYY-MM-DD">
+            </label>
+          </div>
+          <div class="footer sr-center">
+            <button onclick="registerUser()">✓</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
     <div class="popup">
       <div class="popup__content">
         <textarea placeholder="..."></textarea>
@@ -66,11 +83,11 @@
               <legend>Export and import user data:</legend>
               <div class="user-file-data-changer__content">
                 <div>
-                  <button title="export data" onclick="exportDataHandler()">↑</button>
+                  <button type="button" title="export data" onclick="exportDataHandler()">↑</button>
                   – export data
                 </div>
                 <div>
-                  <button title="import data" onclick="uploadFileRedirect()">↓</button>
+                  <button type="button" title="import data" onclick="uploadFileRedirect()">↓</button>
                   – import data
                 </div>
                 <input type="file" multiple accept=".json" style="display: none;"/>

@@ -7,8 +7,7 @@ const setBirthday = (birthday) => {
 }
 
 const setWeeksLived = () => {
-  // const weeks = (timeToDays(new Date().getTime() - new Date(birthday).getTime())/7).toFixed(2);
-  userInfoElements.weeksLived.innerText = `~${weekLived}`;
+  userInfoElements.weeksLived.innerText = `~${weekLived || "you haven't been born yet"}`;
 }
 
 const setPersonalInfo = () => {

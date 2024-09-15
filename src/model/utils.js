@@ -1,5 +1,9 @@
 const padNumber = (number) => String(number).padStart(2, '0');
 
+function isValidDate(d) {
+  return d instanceof Date && !isNaN(d);
+}
+
 function downloadFile(content, fileName = 'file', contentTypeHeader = 'application/json') {
   const blob = new Blob([content], { type: contentTypeHeader });
   const url = window.URL.createObjectURL(blob);
