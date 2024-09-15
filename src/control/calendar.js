@@ -69,7 +69,7 @@ function generateCalendar(element, calendarConfig, user) {
         cellClasses.push(weekStatus.note)
       }
 
-      yearCellsHtml += yearCellHtml(time, weekCountFromBirth, cellClasses);
+      yearCellsHtml += yearCellHtml(time, weekCountFromBirth, weekCount, cellClasses, user.viewModeDetailed);
 
       time+=weeksToMilliseconds(1);
     } while (new Date(time).getFullYear() <= yearCount);

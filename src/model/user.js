@@ -36,3 +36,9 @@ function emptyWeekNote(weekId) {
   }
   writeUserToDb(user);
 }
+
+// isDetailed = [0; 1]
+function setCalendarViewModeDetailed(isDetailed) {
+  user.viewModeDetailed = isDetailed;
+  writeUserToDb(user);
+}

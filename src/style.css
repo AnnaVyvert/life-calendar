@@ -34,13 +34,19 @@ header {
   align-items: center;
 }
 
+.calendar-view {
+  color: white;
+}
+.calendar-view__content {
+  display: flex;
+}
+
 .calendar {
   display: flex;
   justify-content: center;
 
   user-select: none;
 }
-
 .calendar__wrapper {
   display: grid;
   grid-template-columns: repeat(15, min-content);
@@ -56,32 +62,35 @@ header {
   margin-left: 12px;
   margin-bottom: 4px;
 }
-
-.year__header {
-  background-color: var(--bg-color);
-  border: 2px solid var(--bg-color);
-  text-align: center;
-}
-
-.year__week {
-  background-color: white;
-  border: 2px solid white;
-}
-
 .year__header,
 .year__week {
-  color: white;
   width: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   aspect-ratio: 1;
   margin: 2px;
   border-radius: 2px;
 }
+.year__header {
+  color: white;
+  background-color: var(--bg-color);
+  border: 2px solid var(--bg-color);
+  text-align: center;
+}
+.year__week {
+  background-color: white;
+  border: 2px solid white;
+  font-size: x-small;
+}
 .year__week.future {
+  color: white;
   background-color: var(--bg-color);
 }
 .year__week.before-birth {
+  color: white;
   background-color: gray;
-  border: 2px solid gray;
+  border-color: gray;
 }
 .year__week.selected {
   border-color: tomato;

@@ -1,0 +1,1 @@
+const detailedWeeksCheckboxElement = document.querySelector('.calendar-view__content input[id="week-numbers-checkbox"]')

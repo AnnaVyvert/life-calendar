@@ -1,3 +1,5 @@
+const calendarWrapperElement = document.querySelector('.calendar__wrapper');
+
 yearHeaderHtml = (yearStr) => `
   <div class="year__header">${yearStr[0]}</div>
   <div class="year__header">${yearStr[1]}</div>
@@ -5,14 +7,14 @@ yearHeaderHtml = (yearStr) => `
   <div class="year__header">${yearStr[3]}</div>
 `;
 
-yearCellHtml = (date, weekCount, classes) => `
+yearCellHtml = (date, weekCountFromBirth, weekCount, classes, isDetailedMode) => `
   <div 
     id="cell-${date}"
     ${classes.length ? 'class="'+classes.join(' ')+'"' : ''} 
-    title="week number: ${weekCount}
+    title="week number: ${weekCountFromBirth}
     ${formatDate(new Date(date))}"
-    onclick="onCellClick(${date}, ${weekCount})"
-  ></div>
+    onclick="onCellClick(${date}, ${weekCountFromBirth})"
+  >${!!isDetailedMode ? weekCount : ''}</div>
 `;
 
 yearCellLegendHtml = (classes) => `
