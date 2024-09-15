@@ -21,66 +21,69 @@ function onCellClick(time, weekCount) {
   }
 }
 
-function generateCalendar(element, calendarConfig, user) {
-  const birthday = new Date(user.birthday);
-  const birthdayTime = birthday.getTime();
-  const birthdayYear = birthday.getFullYear();
-  const now = new Date();
-  const years = Number(calendarConfig.marks.at(-1).end);
+function generateCalendar() {
+  function generateCalendar(element, calendarConfig, user) {
+    const birthday = new Date(user.birthday);
+    const birthdayTime = birthday.getTime();
+    const birthdayYear = birthday.getFullYear();
+    const now = new Date();
+    const years = Number(calendarConfig.marks.at(-1).end);
 
-  let calendarHtml = '';
-  let weekCountFromBirth = 0;
-  let yearFirstMondayTime = getFirstWeekOfYear(birthdayYear);
-  let time = yearFirstMondayTime;
+    let calendarHtml = '';
+    let weekCountFromBirth = 0;
+    let yearFirstMondayTime = getFirstWeekOfYear(birthdayYear);
+    let time = yearFirstMondayTime;
 
-  for (let i=0; i<years; i++) {
-    let yearCellsHtml = '';
-    let yearCount = birthdayYear+i;
-    let yearCountStr = yearCount.toString();
-    let weekCount = 0;
+    for (let i=0; i<years; i++) {
+      let yearCellsHtml = '';
+      let yearCount = birthdayYear+i;
+      let yearCountStr = yearCount.toString();
+      let weekCount = 0;
 
-    do {
-      weekCount++;
-      // check that week is future
-      let isPresent = now.getTime() - time < weeksToMilliseconds(1)
-      let isAfterThisWeek = time > now.getTime();
+      do {
+        weekCount++;
+        // check that week is future
+        let isPresent = now.getTime() - time < weeksToMilliseconds(1)
+        let isAfterThisWeek = time > now.getTime();
 
 
-      if (now.getTime() >= time) {
-        weekLived = weekCountFromBirth;
-      }
+        if (now.getTime() >= time) {
+          weekLived = weekCountFromBirth;
+        }
 
-      // check that a person was born on that week and futher
-      if (time >= birthdayTime || (time < birthdayTime && birthdayTime - time < weeksToMilliseconds(1))) {
-        weekCountFromBirth++;
-      }
+        // check that a person was born on that week and futher
+        if (time >= birthdayTime || (time < birthdayTime && birthdayTime - time < weeksToMilliseconds(1))) {
+          weekCountFromBirth++;
+        }
 
-      cellClasses = ['year__week'];
-      if (isPresent && !isAfterThisWeek) {
-        cellClasses.push(weekStatus.present)
-      }
-      if (isAfterThisWeek) {
-        cellClasses.push(weekStatus.future);
-      }
-      if (weekCountFromBirth === 0) {
-        cellClasses.push(weekStatus.beforeBirth);
-      }
-      if (user.diary.find((el) => el.weekId === weekCountFromBirth)) {
-        cellClasses.push(weekStatus.note)
-      }
+        cellClasses = ['year__week'];
+        if (isPresent && !isAfterThisWeek) {
+          cellClasses.push(weekStatus.present)
+        }
+        if (isAfterThisWeek) {
+          cellClasses.push(weekStatus.future);
+        }
+        if (weekCountFromBirth === 0) {
+          cellClasses.push(weekStatus.beforeBirth);
+        }
+        if (user.journal.find((el) => el.weekId === weekCountFromBirth)) {
+          cellClasses.push(weekStatus.note)
+        }
 
-      yearCellsHtml += yearCellHtml(time, weekCountFromBirth, weekCount, cellClasses, user.viewModeDetailed);
+        yearCellsHtml += yearCellHtml(time, weekCountFromBirth, weekCount, cellClasses, user.viewModeDetailed);
 
-      time+=weeksToMilliseconds(1);
-    } while (new Date(time).getFullYear() <= yearCount);
+        time+=weeksToMilliseconds(1);
+      } while (new Date(time).getFullYear() <= yearCount);
 
-    calendarHtml += `
-      <div class="year">
-        ${yearHeaderHtml(yearCountStr)}
-        ${yearCellsHtml}
-      </div>
-    `;
+      calendarHtml += `
+        <div class="year">
+          ${yearHeaderHtml(yearCountStr)}
+          ${yearCellsHtml}
+        </div>
+      `;
+    }
+
+    element.innerHTML = calendarHtml;
   }
-
-  element.innerHTML = calendarHtml;
+  generateCalendar(calendarWrapperElement, calendarConfig, user);
 }

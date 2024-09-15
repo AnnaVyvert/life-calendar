@@ -1,0 +1,1 @@
+const invisibleFileRecieverElement = document.querySelector('input[type="file"');

@@ -10,3 +10,9 @@ const setWeeksLived = () => {
   // const weeks = (timeToDays(new Date().getTime() - new Date(birthday).getTime())/7).toFixed(2);
   userInfoElements.weeksLived.innerText = `~${weekLived}`;
 }
+
+const setPersonalInfo = () => {
+  setName(user.name);
+  setBirthday(user.birthday);
+  setWeeksLived(user.birthday);
+}

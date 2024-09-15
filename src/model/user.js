@@ -13,11 +13,11 @@ if (userData === null) {
 }
 
 function saveWeekNoteToDb(weekId, note) {
-  const findedNote = user.diary.find((el) => el.weekId === weekId);
+  const findedNote = user.journal.find((el) => el.weekId === weekId);
   if (findedNote) {
     findedNote.note = note;
   } else {
-    user.diary.push({
+    user.journal.push({
       weekId,
       note
     })
@@ -26,13 +26,13 @@ function saveWeekNoteToDb(weekId, note) {
 }
 
 function getNoteByWeekId(weekId) {
-  return user.diary.find((el) => el.weekId === weekId)?.note;
+  return user.journal.find((el) => el.weekId === weekId)?.note;
 }
 
 function emptyWeekNote(weekId) {
-  const findedIndex = user.diary.findIndex((el) => el.weekId === weekId);
+  const findedIndex = user.journal.findIndex((el) => el.weekId === weekId);
   if (findedIndex !== -1) {
-    user.diary.splice(findedIndex, 1);
+    user.journal.splice(findedIndex, 1);
   }
   writeUserToDb(user);
 }

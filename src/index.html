@@ -15,6 +15,7 @@
   <script src="view/legend.js" defer></script>
   <script src="view/calendar-view-options.js" defer></script>
   <script src="view/info-and-settings.js" defer></script>
+  <script src="view/file-handler.js" defer></script>
 
   <script src="model/utils.js"></script>
   <script src="model/user.default.js"></script>
@@ -29,6 +30,7 @@
   <script src="control/user.js"></script>
   <script src="control/legend.js"></script>
   <script src="control/calendar-view-options.js"></script>
+  <script src="control/file-handler.js"></script>
 
   <script src="script.js" defer></script>
 
@@ -59,6 +61,22 @@
                 <div>weeks lived: <span class="calendar-person__weeks-lived">-</span></div>
               </div>
           </div>
+          <div class="user-file-data-changer">
+            <fieldset>
+              <legend>Export and import user data:</legend>
+              <div class="user-file-data-changer__content">
+                <div>
+                  <button title="export data" onclick="exportDataHandler()">↑</button>
+                  – export data
+                </div>
+                <div>
+                  <button title="import data" onclick="uploadFileRedirect()">↓</button>
+                  – import data
+                </div>
+                <input type="file" multiple accept=".json" style="display: none;"/>
+              </div>
+            </fieldset>
+          </div>
           <div class="calendar-view">
             <div class="calendar-view__title"></div>
             <div class="calendar-view__content">
@@ -86,7 +104,7 @@
                   <li>opt кнопки управления запиской из попапа (очищение записки, отменить изменения)</li>
                   <li>opt прикрутить отображение записки как md</li>
                   <li>прикрутить авторизацию для инициализации стора юзера</li>
-                  <li>opt возможность импортировать и экспортировать стор</li>
+
                   <li>сделать сервис с авторизацией по логину и паролю для хранения стора на беке (фс)</li>
                   <li>дизайн хедера и футера</li>
                   <li>user guide</li>

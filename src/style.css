@@ -3,6 +3,12 @@
   --blue-color: #1f6feb;
 }
 
+button {
+  background-color: var(--bg-color);
+  color: white;
+  border-radius: 4px;
+}
+
 .sr-center {
   display: flex;
   justify-content: center;
@@ -43,11 +49,6 @@ details.info-and-settings-card[open] summary {
   border-bottom: 1px solid white;
 }
 
-.info-and-settings-card__content {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: min-content min-content;
-}
 .info-and-settings-card__content > div {
   margin-top: 12px;
 }
@@ -57,6 +58,13 @@ details.info-and-settings-card[open] summary {
 }
 .calendar-person__content > div {
   margin-bottom: 4px;
+}
+
+.user-file-data-changer {
+  color: white;
+}
+.user-file-data-changer__content div:not(:last-child) {
+  margin-bottom: 8px;
 }
 
 .calendar-legend {

@@ -1,8 +1,7 @@
-generateCalendar(calendarWrapperElement, calendarConfig, user);
+generateCalendar();
 
-setName(user.name);
-setBirthday(user.birthday);
-setWeeksLived(user.birthday);
+setPersonalInfo();
 
 generateLegend();
 detailedWeeksCheckboxValueChangeSubscribe();
+dataRecieverSubscribe();
