@@ -3,9 +3,13 @@
   --blue-color: #1f6feb;
 }
 
+.sr-center {
+  display: flex;
+  justify-content: center;
+}
+
 header {
-  color: white;
-  white-space: pre;
+  margin-bottom: 16px;
 }
 
 .calendar-header {
@@ -16,18 +20,51 @@ header {
   margin-bottom: 12px;
 }
 
-.calendar-person {
-  display: grid;
-  /* grid-template-columns: repeat(3, min-content); */
-  color: white;
+fieldset legend {
   font-size: 20px;
+}
+
+details.info-and-settings-card {
+  display: flex;
+  width: 1420px;
+
+  border: 2px solid white;
+  border-radius: 4px;
+  padding: 2px;
+  margin-bottom: 12px;
+}
+details.info-and-settings-card summary {
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 18px;
+}
+details.info-and-settings-card[open] summary {
+  border-bottom: 1px solid white;
+}
+
+.info-and-settings-card__content {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: min-content min-content;
+}
+.info-and-settings-card__content > div {
+  margin-top: 12px;
+}
+
+.calendar-person {
+  color: white;
+}
+.calendar-person__content > div {
+  margin-bottom: 4px;
 }
 
 .calendar-legend {
   color: white;
 }
-.calendar-legend__title {
-  font-size: 20px;
+.calendar-legend fieldset {
+  display: flex;
+  flex-direction: column;
 }
 .calendar-legend__content > div {
   display: flex;
@@ -39,6 +76,16 @@ header {
 }
 .calendar-view__content {
   display: flex;
+}
+
+.todo-list {
+  color: white;
+}
+.todo-list div > ul{
+  margin: 0;
+}
+.todo-list div > ul > li{
+  margin-bottom: 2px;
 }
 
 .calendar {

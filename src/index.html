@@ -14,6 +14,7 @@
   <script src="view/week-note.js" defer></script>
   <script src="view/legend.js" defer></script>
   <script src="view/calendar-view-options.js" defer></script>
+  <script src="view/info-and-settings.js" defer></script>
 
   <script src="model/utils.js"></script>
   <script src="model/user.default.js"></script>
@@ -37,16 +38,7 @@
   </script>
 </head>
 <body>
-  <header>
-    TODO:
-      - opt настраиваемая легенда (конфигурация календаря)
-      - opt кнопки управления запиской из попапа (очищение записки, отменить изменения)
-      - opt прикрутить отображение записки как md
-      - прикрутить авторизацию для инициализации стора юзера
-      - opt возможность импортировать и экспортировать стор
-      - сделать сервис с авторизацией по логину и паролю для хранения стора на беке (фс)
-      - дизайн хедера и футера
-    </header>
+  <header></header>
   <section class="content">
     <div class="popup">
       <div class="popup__content">
@@ -54,27 +46,56 @@
       </div>
     </div>
     <div class="calendar-header">Life Calendar Journal</div>
-    <div class="calendar-person">
-      <span>Person info:</span>
-      <span>name: <span class="calendar-person__name">-</span></span>
-      <span>birth: <span class="calendar-person__birth">-</span></span>
-      <span>weeks lived: <span class="calendar-person__weeks-lived">-</span></span>
-    </div>
-    <div class="calendar-legend">
-      <div class="calendar-legend__title">Legend:</div>
-      <div class="calendar-legend__content"></div>
-    </div>
-    <div class="calendar-view">
-      <div class="calendar-view__title"></div>
-      <div class="calendar-view__content">
-        <fieldset>
-          <legend>View options:</legend>
-          <div>
-            <input type="checkbox" id="week-numbers-checkbox" />
-            <label for="week-numbers-checkbox">enable detailed weeks</label>
+    <div class="sr-center">
+      <details class="info-and-settings-card">
+        <summary>Info and settings:</summary>
+        <div class="info-and-settings-card__content">
+          <div class="calendar-person">
+            <fieldset>
+              <legend>Person info:</legend>
+              <div class="calendar-person__content">
+                <div>name: <span class="calendar-person__name">-</span></div>
+                <div>birthday: <span class="calendar-person__birth">-</span></div>
+                <div>weeks lived: <span class="calendar-person__weeks-lived">-</span></div>
+              </div>
           </div>
-        </fieldset>
-      </div>
+          <div class="calendar-view">
+            <div class="calendar-view__title"></div>
+            <div class="calendar-view__content">
+              <fieldset>
+                <legend>View options:</legend>
+                <div>
+                  <input type="checkbox" id="week-numbers-checkbox" />
+                  <label for="week-numbers-checkbox">enable detailed weeks</label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="calendar-legend">
+            <fieldset>
+              <legend>Legend:</legend>
+              <div class="calendar-legend__content"></div>
+            </fieldset>
+          </div>
+          <div class="todo-list">
+            <fieldset>
+              <legend>Todo:</legend>
+              <div>
+                <ul>
+                  <li>opt настраиваемая легенда (конфигурация календаря)</li>
+                  <li>opt кнопки управления запиской из попапа (очищение записки, отменить изменения)</li>
+                  <li>opt прикрутить отображение записки как md</li>
+                  <li>прикрутить авторизацию для инициализации стора юзера</li>
+                  <li>opt возможность импортировать и экспортировать стор</li>
+                  <li>сделать сервис с авторизацией по логину и паролю для хранения стора на беке (фс)</li>
+                  <li>дизайн хедера и футера</li>
+                  <li>user guide</li>
+                </ul>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </details> 
     </div>
     <section class="calendar">
       <div class="calendar__wrapper"></div>

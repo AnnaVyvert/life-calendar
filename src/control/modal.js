@@ -8,8 +8,10 @@ const directions = {
 showModal = (anchorEl) => {
   setModalTransition(modalElement.classList.contains('open') ? 0.4 : 0)
   
-  document.body.style.overflow = 'hidden';
   modalElement.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  infoAndSettingsElement.setAttribute('tabindex', -1);
+  infoAndSettingsElement.style.pointerEvents = 'none';
 
   const allowedDirections = getAllowedModalDirectionsToOpen(anchorEl);
   placeModal(anchorEl, allowedDirections);
@@ -17,6 +19,8 @@ showModal = (anchorEl) => {
 closeModal = () => {
   modalElement.classList.remove('open');
   document.body.style.overflow = 'initial';
+  infoAndSettingsElement.removeAttribute('tabindex');
+  infoAndSettingsElement.style.pointerEvents = 'all';
 };
 setModalTransition = (s) => modalElement.style.transition = `${s}s`
 

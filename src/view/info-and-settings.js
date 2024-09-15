@@ -1,0 +1,1 @@
+const infoAndSettingsElement = document.querySelector('details.info-and-settings-card');
