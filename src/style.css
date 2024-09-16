@@ -38,6 +38,9 @@ dialog.login::backdrop {
 dialog.login .content {
   display: grid;
 }
+dialog.login .date-validation {
+  color: tomato;
+}
 dialog.login .content div:not(:last-child) {
   margin-bottom: 8px;
 }
