@@ -26,20 +26,20 @@ setModalTransition = (s) => modalElement.style.transition = `${s}s`
 
 getAllowedModalDirectionsToOpen = (anchorEl) => {
   function getScrollMaxY(){"use strict";
-    const innerHeight = window.innerHeight || ebody.clientHeight, yWithScroll = 0;
+    let innerHeight = window.innerHeight || ebody.clientHeight, yWithScroll = 0;
 
     if (window.innerHeight && window.scrollMaxY){
-        // Firefox
+        // Firefox 
         yWithScroll = window.innerHeight + window.scrollMaxY; 
     } else if (document.body.scrollHeight > document.body.offsetHeight){ 
-        // all but Explorer Mac
+        // all but Explorer Mac 
         yWithScroll = document.body.scrollHeight; 
     } else { 
         // works in Explorer 6 Strict, Mozilla (not FF) and Safari 
         yWithScroll = document.body.offsetHeight; 
     } 
     return yWithScroll - innerHeight; 
-}
+  }
 
   const screenSizes = [document.body.clientWidth, document.body.clientHeight - getScrollMaxY() + window.scrollY]
   const allowedDirections = [];
