@@ -1,3 +1,4 @@
+const popupAppearingMargin = 8;
 const directions = {
   top: 'top',
   right: 'right',
@@ -47,13 +48,13 @@ getAllowedModalDirectionsToOpen = (anchorEl) => {
   if (anchorEl.offsetTop + anchorEl.clientHeight + modalElement.clientHeight < screenSizes[1]) {
     allowedDirections.push(directions.bottom);
   }
-  if (anchorEl.offsetLeft + anchorEl.clientWidth + modalElement.clientWidth < screenSizes[0]) {
+  if (anchorEl.offsetLeft + anchorEl.clientWidth + modalElement.clientWidth + popupAppearingMargin < screenSizes[0]) {
     allowedDirections.push(directions.right);
   }
   if (anchorEl.offsetTop - modalElement.clientHeight > 0 && !allowedDirections.includes(directions.bottom)) {
     allowedDirections.push(directions.top);
   }
-  if (anchorEl.offsetLeft - modalElement.clientWidth > 0 && !allowedDirections.includes(directions.right)) {
+  if (anchorEl.offsetLeft - modalElement.clientWidth - popupAppearingMargin > 0 && !allowedDirections.includes(directions.right)) {
     allowedDirections.push(directions.left);
   }
 
@@ -65,13 +66,13 @@ placeModal = (anchorEl, allowedDirections) => {
     if (i > 1) return;
     switch (direction) {
       case directions.left: 
-        modalElement.style.left = `${anchorEl.offsetLeft - modalElement.clientWidth}px`;
+        modalElement.style.left = `${anchorEl.offsetLeft - modalElement.clientWidth - popupAppearingMargin}px`;
         break;
       case directions.bottom:
         modalElement.style.top = `${anchorEl.offsetTop}px`;
         break;
       case directions.right:
-        modalElement.style.left = `${anchorEl.offsetLeft + anchorEl.clientWidth}px`;
+        modalElement.style.left = `${anchorEl.offsetLeft + anchorEl.clientWidth + popupAppearingMargin}px`;
         break;
       case directions.top:
         modalElement.style.top = `${anchorEl.offsetTop + anchorEl.clientHeight - modalElement.clientHeight}px`;
