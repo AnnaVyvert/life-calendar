@@ -5,7 +5,8 @@ function loadApp() {
   
   generateLegend();
   detailedWeeksCheckboxValueChangeSubscribe();
-  dataRecieverSubscribe();  
+  dataRecieverSubscribe();
+  modalCloseOnEscKeySubscribe();
 }
 
 disablePageReloadingOnRegisterSubmit();

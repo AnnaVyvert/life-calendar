@@ -80,3 +80,12 @@ placeModal = (anchorEl, allowedDirections) => {
     }
   });
 }
+
+function modalCloseOnEscKeySubscribe() {
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') {
+      closeModal();
+      unselectLastClickedCell();
+    }
+  })
+}

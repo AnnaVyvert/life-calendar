@@ -4,11 +4,9 @@ function onCellClick(time, weekCount) {
 
   if (cellEl.id === selectedCell?.id) {
     closeModal();
-    cellEl.classList.remove(weekStatus.selected);
+    unselectLastClickedCell();
     if (onWeekNoteSave(weekCount)) {
       cellEl.classList.add(weekStatus.note);
-    } else {
-      cellEl.classList.remove(weekStatus.note);
     }
     selectedCell = undefined;
   } else {
@@ -16,9 +14,13 @@ function onCellClick(time, weekCount) {
     showModal(cellEl);
     focusWeekNoteElement();
     cellEl.classList.add(weekStatus.selected);
-    selectedCell?.classList.remove(weekStatus.selected);
+    unselectLastClickedCell();
     selectedCell = cellEl;
   }
+}
+
+function unselectLastClickedCell() {
+  selectedCell?.classList.remove(weekStatus.selected);
 }
 
 var weekLived;
