@@ -161,6 +161,7 @@ details.info-and-settings-card[open] summary {
   background-color: white;
   border: 2px solid white;
   font-size: x-small;
+  cursor: pointer;
 }
 .year__week.future {
   color: white;
@@ -170,6 +171,7 @@ details.info-and-settings-card[open] summary {
   color: white;
   background-color: gray;
   border-color: gray;
+  pointer-events: none;
 }
 .year__week.selected {
   border-color: tomato;
