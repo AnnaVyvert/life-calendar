@@ -5,10 +5,13 @@ function onCellClick(time, weekCount) {
   if (cellEl.id === selectedCell?.id) {
     closeModal();
     unselectLastClickedCell();
+    
     if (onWeekNoteSave(weekCount)) {
       cellEl.classList.add(weekStatus.note);
+    } else {
+      cellEl.classList.remove(weekStatus.note);
     }
-    selectedCell = undefined;
+    nullBufferCell();
   } else {
     loadNote(weekCount);
     showModal(cellEl);
@@ -21,6 +24,10 @@ function onCellClick(time, weekCount) {
 
 function unselectLastClickedCell() {
   selectedCell?.classList.remove(weekStatus.selected);
+}
+
+function nullBufferCell() {
+  selectedCell = undefined;
 }
 
 var weekLived;

@@ -86,6 +86,7 @@ function modalCloseOnEscKeySubscribe() {
     if (ev.key === 'Escape') {
       closeModal();
       unselectLastClickedCell();
+      nullBufferCell();
     }
   })
 }
