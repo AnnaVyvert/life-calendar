@@ -23,4 +23,8 @@ const legendConfig = [
     status: weekStatus.note,
     label: 'a week with a note'
   },
+  {
+    status: `${weekStatus.present} ${weekStatus.note}`,
+    label: 'the present week with a note'
+  },
 ]
