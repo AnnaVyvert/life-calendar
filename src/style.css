@@ -1,11 +1,11 @@
 :root {
   --bg-color: #0d1117;
-  --blue-color: #1f6feb;
+  --white-color: #faf5ef;
 }
 
 button {
   background-color: var(--bg-color);
-  color: white;
+  color: var(--white-color);
   border-radius: 4px;
 }
 
@@ -46,7 +46,7 @@ dialog.login .content div:not(:last-child) {
 }
 
 .calendar-header {
-  color: white;
+  color: var(--white-color);
   text-align: center;
   font-size: 32px;
   display: block;
@@ -61,19 +61,19 @@ details.info-and-settings-card {
   display: flex;
   width: 1420px;
 
-  border: 2px solid white;
+  border: 2px solid var(--white-color);
   border-radius: 4px;
   padding: 2px;
   margin-bottom: 12px;
 }
 details.info-and-settings-card summary {
-  color: white;
+  color: var(--white-color);
   cursor: pointer;
   padding: 8px;
   font-size: 18px;
 }
 details.info-and-settings-card[open] summary {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--white-color);
 }
 
 .info-and-settings-card__content > div {
@@ -81,21 +81,21 @@ details.info-and-settings-card[open] summary {
 }
 
 .calendar-person {
-  color: white;
+  color: var(--white-color);
 }
 .calendar-person__content > div {
   margin-bottom: 4px;
 }
 
 .user-file-data-changer {
-  color: white;
+  color: var(--white-color);
 }
 .user-file-data-changer__content div:not(:last-child) {
   margin-bottom: 8px;
 }
 
 .calendar-legend {
-  color: white;
+  color: var(--white-color);
 }
 .calendar-legend fieldset {
   display: flex;
@@ -105,21 +105,24 @@ details.info-and-settings-card[open] summary {
   display: flex;
   align-items: center;
 }
+.calendar-legend__content > div:not(:last-child) {
+  margin-bottom: 4px;
+}
 
 .calendar-view {
-  color: white;
+  color: var(--white-color);
 }
 .calendar-view__content {
   display: flex;
 }
 
-.todo-list {
-  color: white;
+.list {
+  color: var(--white-color);
 }
-.todo-list div > ul{
+.list div > ul{
   margin: 0;
 }
-.todo-list div > ul > li{
+.list div > ul > li:not(:last-child){
   margin-bottom: 2px;
 }
 
@@ -140,6 +143,7 @@ details.info-and-settings-card[open] summary {
   display: grid;
   grid-template-columns: repeat(4, min-content);
   grid-template-rows: repeat(16, min-content);
+  gap: 4px;
 
   margin-left: 12px;
   margin-bottom: 4px;
@@ -151,33 +155,35 @@ details.info-and-settings-card[open] summary {
   align-items: center;
   justify-content: center;
   aspect-ratio: 1;
-  margin: 2px;
   border-radius: 2px;
 }
 .year__header {
-  color: white;
+  color: var(--white-color);
   background-color: var(--bg-color);
   border: 2px solid var(--bg-color);
   text-align: center;
 }
 .year__week {
-  background-color: white;
-  border: 2px solid white;
+  background-color: var(--white-color);
+  border: 2px solid var(--white-color);
   font-size: x-small;
   cursor: pointer;
 }
 .year__week.future {
-  color: white;
+  color: var(--white-color);
   background-color: var(--bg-color);
 }
 .year__week.before-birth {
-  color: white;
+  color: var(--white-color);
   background-color: gray;
   border-color: gray;
   pointer-events: none;
 }
 .year__week.selected {
   border-color: tomato;
+}
+.year__week.note.present {
+  background-color: green;
 }
 .year__week.note {
   background-color: peru;
