@@ -81,12 +81,17 @@ placeModal = (anchorEl, allowedDirections) => {
   });
 }
 
+let prevKey = '';
 function modalCloseOnEscKeySubscribe() {
   document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape') {
+    if (prevKey === 'Shift' && ev.key === 'Enter') {
+      selectedCell?.click();
+      ev.preventDefault();
+    } else if (ev.key === 'Escape') {
       closeModal();
       unselectLastClickedCell();
       nullBufferCell();
     }
+    prevKey = ev.key;
   })
 }
