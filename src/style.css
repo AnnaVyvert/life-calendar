@@ -59,7 +59,9 @@ fieldset legend {
 
 details.info-and-settings-card {
   display: flex;
-  width: 1420px;
+  min-width: 372px;
+  max-width: 1360px;
+  width: 100%;
 
   border: 2px solid var(--white-color);
   border-radius: 4px;
@@ -108,6 +110,9 @@ details.info-and-settings-card[open] summary {
 .calendar-legend__content > div:not(:last-child) {
   margin-bottom: 4px;
 }
+.calendar-legend__row__description {
+  margin-left: 6px;
+}
 
 .calendar-view {
   color: var(--white-color);
@@ -120,7 +125,7 @@ details.info-and-settings-card[open] summary {
   color: var(--white-color);
 }
 .list div > ul{
-  margin: 0;
+  margin: 0 0 0 -28px;
 }
 .list div > ul > li:not(:last-child){
   margin-bottom: 2px;

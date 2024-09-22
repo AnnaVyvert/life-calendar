@@ -2,8 +2,8 @@ calendarLegendTitleElem = document.querySelector('.calendar-legend__title');
 calendarLegendElem = document.querySelector('.calendar-legend__content');
 
 const getLegendRow = (weekCell, label) => `
-  <div>
+  <div class="calendar-legend__row">
     ${weekCell}
-    <span> – ${label}</span>
+    <span class="calendar-legend__row__description">– ${label}</span>
   </div>
 `
