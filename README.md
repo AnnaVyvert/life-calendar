@@ -1,10 +1,10 @@
 # life-calendar
 
-A web service with a unique concept of a life diary.
+A web service with a unique concept of life diary.
 
 Each cell represents a week, where you can write any notes.
 
-You can also use these cells to reflect on the past and plan your future life.
+You can also use these cells to reflect on the past and plan your future.
 
 It is possible to save the service as a PWA.
 
