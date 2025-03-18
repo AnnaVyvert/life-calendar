@@ -7,11 +7,21 @@ yearHeaderHtml = (yearStr) => `
   <div class="year__header">${yearStr[3]}</div>
 `;
 
-yearCellHtml = (date, endWeekDayTime, weekCountFromBirth, weekCount, classes, isDetailedMode) => `
+yearCellHtml = (
+  age,
+  date,
+  endWeekDayTime,
+  weekCountFromBirth,
+  weekCount,
+  classes,
+  isDetailedMode
+) => `
   <div 
     id="cell-${date}"
     ${classes.length ? 'class="'+classes.join(' ')+'"' : ''} 
-    title="week number: ${weekCountFromBirth}
+    title="age: ${age}
+day: ${weekCountFromBirth*7-7}
+week: ${weekCountFromBirth}
 ${formatDate(new Date(date))} - ${formatDate(new Date(endWeekDayTime))}"
     onclick="onCellClick(${date}, ${weekCountFromBirth})"
   >${!!isDetailedMode ? weekCount : ''}</div>

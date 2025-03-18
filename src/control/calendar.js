@@ -79,8 +79,15 @@ function generateCalendar() {
         if (user.journal.find((el) => el.weekId === weekCountFromBirth)) {
           cellClasses.push(weekStatus.note)
         }
-
-        yearCellsHtml += yearCellHtml(time, time + daysToMilliseconds(6), weekCountFromBirth, weekCount, cellClasses, user.viewModeDetailed);
+      
+        yearCellsHtml += yearCellHtml(
+          getFullYearsFromBirthToTime(birthdayTime, time),
+          time, time + daysToMilliseconds(6),
+          weekCountFromBirth,
+          weekCount,
+          cellClasses,
+          user.viewModeDetailed
+        );
 
         time+=weeksToMilliseconds(1);
       } while (new Date(time).getFullYear() <= yearCount);
