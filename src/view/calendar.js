@@ -20,8 +20,8 @@ yearCellHtml = (
     id="cell-${date}"
     ${classes.length ? 'class="'+classes.join(' ')+'"' : ''} 
     title="age: ${age}
-day: ${weekCountFromBirth*7-7}
 week: ${weekCountFromBirth}
+day: ${weekCountFromBirth*7-7}
 ${formatDate(new Date(date))} - ${formatDate(new Date(endWeekDayTime))}"
     onclick="onCellClick(${date}, ${weekCountFromBirth})"
   >${!!isDetailedMode ? weekCount : ''}</div>
