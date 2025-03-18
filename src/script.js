@@ -14,4 +14,5 @@ if(loadUser()) {
   loadApp();
 } else {
   authLoginElement.showModal();
+  focusBirthdayInputElement();
 }
